@@ -1,4 +1,4 @@
-# �📊 Analisador de Dependências Python com IA
+# 📊 Analisador de Dependências Python com IA
 
 > **Uma ferramenta inteligente que analisa seu código Python e gera documentação interativa automática!** 🚀
 
