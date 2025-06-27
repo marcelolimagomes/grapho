@@ -1,0 +1,26 @@
+# Configuração para análise do projeto de exemplo
+root_directory: "./example"
+
+# Tipos de visualização a serem gerados
+visualization_types:
+  - "arquivos"
+  - "classes"
+
+# Formato de saída
+output_format: "html"
+
+# Diretório de saída
+output_directory: "./docs_example"
+
+# Padrões de arquivos para ignorar
+ignore_patterns:
+  - "__pycache__"
+  - "*.pyc"
+  - ".git"
+
+# Configurações de visualização
+graph_config:
+  width: "100%"
+  height: "600px"
+  physics_enabled: true
+  hierarchical_layout: false

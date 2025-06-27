@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classe: AIConfig</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/style.css">
+    <style>
+        :root {
+            --color-primary: #3b82f6;
+            --color-secondary: #64748b;
+        }
+        .text-primary { color: var(--color-primary); }
+        .border-primary { border-color: var(--color-primary); }
+        .bg-primary { background-color: var(--color-primary); }
+        .hover\:text-primary:hover { color: var(--color-primary); }
+        .hover\:border-primary:hover { border-color: var(--color-primary); }
+        .text-secondary { color: var(--color-secondary); }
+        
+        /* Code viewer modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            max-width: 95vw;
+            max-height: 95vh;
+            width: 1200px;
+            height: 800px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .modal-header {
+            background-color: #2d2d30;
+            color: #d4d4d4;
+            padding: 15px 20px;
+            border-bottom: 1px solid #424245;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-body {
+            flex: 1;
+            overflow: auto;
+            background-color: #1e1e1e;
+        }
+        
+        .close-btn {
+            background: none;
+            border: none;
+            color: #d4d4d4;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+        }
+        
+        .close-btn:hover {
+            background-color: #424245;
+        }
+        
+        .clickable-code {
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .clickable-code:hover {
+            background-color: rgba(59, 130, 246, 0.1);
+        }
+        
+        /* Estilos específicos para a aba de Documentação IA */
+        #documentationContent {
+            padding: 20px;
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+        }
+        
+        #documentationContent .prose {
+            color: #d4d4d4;
+            max-width: none;
+        }
+        
+        #documentationContent h1,
+        #documentationContent h2,
+        #documentationContent h3,
+        #documentationContent h4,
+        #documentationContent h5,
+        #documentationContent h6 {
+            color: #ffffff;
+            margin-top: 24px;
+            margin-bottom: 16px;
+        }
+        
+        #documentationContent h1 {
+            font-size: 1.75rem;
+            font-weight: bold;
+            border-bottom: 2px solid #424245;
+            padding-bottom: 8px;
+        }
+        
+        #documentationContent h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        #documentationContent h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        
+        #documentationContent p {
+            color: #d4d4d4;
+            margin-bottom: 1rem;
+        }
+        
+        #documentationContent strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+        
+        #documentationContent em {
+            color: #ffd700;
+            font-style: italic;
+        }
+        
+        #documentationContent code {
+            background-color: #2d2d30;
+            color: #ffd700;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        #documentationContent pre {
+            background-color: #2d2d30;
+            color: #d4d4d4;
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 16px 0;
+            border: 1px solid #424245;
+        }
+        
+        #documentationContent pre code {
+            background-color: transparent;
+            color: inherit;
+            padding: 0;
+        }
+        
+        #documentationContent ul,
+        #documentationContent ol {
+            color: #d4d4d4;
+            margin: 16px 0;
+            padding-left: 20px;
+        }
+        
+        #documentationContent li {
+            margin-bottom: 8px;
+            color: #d4d4d4;
+        }
+        
+        #documentationContent blockquote {
+            border-left: 4px solid #0066cc;
+            padding-left: 16px;
+            margin: 16px 0;
+            color: #b3b3b3;
+            font-style: italic;
+        }
+        
+        #documentationContent a {
+            color: #4fc3f7;
+            text-decoration: underline;
+        }
+        
+        #documentationContent a:hover {
+            color: #81d4fa;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <h1 class="text-xl font-semibold text-gray-900">
+                        <a href="../index.html" class="hover:text-primary">
+                            📚 Documentação do Projeto
+                        </a>
+                    </h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="../index.html" 
+                       class="text-secondary hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
+                        🏠 Início
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        
+<div class="space-y-6">
+    <!-- Header -->
+    <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+        <div class="flex items-center justify-between">
+            <div>
+                <h1 class="text-2xl font-bold text-gray-900">🏗️ AIConfig</h1>
+                <p class="text-sm text-gray-500 mt-1">ai_config.py • Linha 11</p>
+            </div>
+            <div class="flex space-x-4 text-sm text-gray-500">
+                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">9 métodos</span>
+                <span class="bg-green-100 text-green-800 px-2 py-1 rounded">0 atributos</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Documentation -->
+    
+    <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+        <h2 class="text-lg font-medium text-gray-900 mb-3">📖 Documentação</h2>
+        <div class="prose text-gray-700">
+            <pre class="whitespace-pre-wrap bg-gray-50 p-4 rounded text-sm">Configuração para integração com IA.</pre>
+        </div>
+    </div>
+    
+
+    <!-- Content Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Methods -->
+        
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200">
+            <div class="px-6 py-4 border-b border-gray-200">
+                <h2 class="text-lg font-medium text-gray-900">⚙️ Métodos</h2>
+            </div>
+            <div class="p-6">
+                <div class="space-y-2">
+                    
+                    <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                        <span class="text-sm font-mono text-gray-900">__init__()</span>
+                        
+                        <span class="ml-2 bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">especial</span>
+                        
+                    </div>
+                    
+                    <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                        <span class="text-sm font-mono text-gray-900">openai_api_key()</span>
+                        
+                        <span class="ml-2 bg-green-100 text-green-800 text-xs px-2 py-1 rounded">público</span>
+                        
+                    </div>
+                    
+                    <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                        <span class="text-sm font-mono text-gray-900">openai_model()</span>
+                        
+                        <span class="ml-2 bg-green-100 text-green-800 text-xs px-2 py-1 rounded">público</span>
+                        
+                    </div>
+                    
+                    <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                        <span class="text-sm font-mono text-gray-900">openai_temperature()</span>
+                        
+                        <span class="ml-2 bg-green-100 text-green-800 text-xs px-2 py-1 rounded">público</span>
+                        
+                    </div>
+                    
+                    <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                        <span class="text-sm font-mono text-gray-900">openai_max_tokens()</span>
+                        
+                        <span class="ml-2 bg-green-100 text-green-800 text-xs px-2 py-1 rounded">público</span>
+                        
+                    </div>
+                    
+                    <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                        <span class="text-sm font-mono text-gray-900">enable_ai_documentation()</span>
+                        
+                        <span class="ml-2 bg-green-100 text-green-800 text-xs px-2 py-1 rounded">público</span>
+                        
+                    </div>
+                    
+                    <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                        <span class="text-sm font-mono text-gray-900">documentation_language()</span>
+                        
+                        <span class="ml-2 bg-green-100 text-green-800 text-xs px-2 py-1 rounded">público</span>
+                        
+                    </div>
+                    
+                    <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                        <span class="text-sm font-mono text-gray-900">include_config_files()</span>
+                        
+                        <span class="ml-2 bg-green-100 text-green-800 text-xs px-2 py-1 rounded">público</span>
+                        
+                    </div>
+                    
+                    <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                        <span class="text-sm font-mono text-gray-900">validate()</span>
+                        
+                        <span class="ml-2 bg-green-100 text-green-800 text-xs px-2 py-1 rounded">público</span>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+
+        <!-- Attributes -->
+        
+    </div>
+
+    <!-- Inheritance -->
+    
+
+    <!-- Related Classes -->
+    <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+        <h2 class="text-lg font-medium text-gray-900 mb-3">🏗️ Classes Relacionadas</h2>
+        <div class="space-y-2">
+            
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+            
+            
+                <p class="text-sm text-gray-500 italic">Nenhuma classe relacionada encontrada no mesmo arquivo</p>
+            
+        </div>
+    </div>
+</div>
+
+    </main>
+
+    <!-- Code Viewer Modal -->
+    <div id="codeModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Código Fonte</h3>
+                <button class="close-btn" onclick="closeCodeModal()">&times;</button>
+            </div>
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="Buscar no código..." onkeyup="searchInCode()" />
+                <div class="search-info" id="searchInfo"></div>
+            </div>
+            <div class="modal-body">
+                <div id="codeContainer"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-12">
+        <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
+            <p class="text-center text-sm text-gray-500">
+                Gerado pela Ferramenta de Documentação Python • 27/06/2025 15:35
+            </p>
+        </div>
+    </footer>
+
+    <script src="./assets/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+/* Estilos customizados para a documentação */
+.graph-container iframe {
+	min-height: 500px;
+}
+
+.tab-button {
+	transition: all 0.2s ease-in-out;
+}
+
+.tab-button:hover {
+	transform: translateY(-1px);
+}
+
+/* Melhorias de acessibilidade */
+.prose pre {
+	font-family: 'Courier New', monospace;
+	font-size: 0.875rem;
+	line-height: 1.4;
+}
+
+/* Animações suaves */
+.bg-white {
+	transition: box-shadow 0.2s ease-in-out;
+}
+
+.bg-white:hover {
+	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Scroll customizado */
+.overflow-y-auto::-webkit-scrollbar {
+	width: 6px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-track {
+	background: #f1f1f1;
+	border-radius: 3px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+	background: #c1c1c1;
+	border-radius: 3px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb:hover {
+	background: #a1a1a1;
+}
+
+/* Estilos específicos para a aba de Documentação IA */
+#documentationContent {
+	padding: 20px;
+	background-color: #1e1e1e;
+	color: #d4d4d4;
+}
+
+#documentationContent .prose {
+	color: #d4d4d4;
+	max-width: none;
+}
+
+#documentationContent h1,
+#documentationContent h2,
+#documentationContent h3,
+#documentationContent h4,
+#documentationContent h5,
+#documentationContent h6 {
+	color: #ffffff;
+	margin-top: 24px;
+	margin-bottom: 16px;
+}
+
+#documentationContent h1 {
+	font-size: 1.75rem;
+	font-weight: bold;
+	border-bottom: 2px solid #424245;
+	padding-bottom: 8px;
+}
+
+#documentationContent h2 {
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+#documentationContent h3 {
+	font-size: 1.25rem;
+	font-weight: 600;
+}
+
+#documentationContent p {
+	color: #d4d4d4;
+	margin-bottom: 1rem;
+}
+
+#documentationContent strong {
+	color: #ffffff;
+	font-weight: 600;
+}
+
+#documentationContent em {
+	color: #ffd700;
+	font-style: italic;
+}
+
+#documentationContent code {
+	background-color: #2d2d30;
+	color: #ffd700;
+	padding: 2px 6px;
+	border-radius: 4px;
+	font-family: 'Courier New', monospace;
+	font-size: 0.9em;
+}
+
+#documentationContent pre {
+	background-color: #2d2d30;
+	color: #d4d4d4;
+	padding: 16px;
+	border-radius: 8px;
+	overflow-x: auto;
+	margin: 16px 0;
+	border: 1px solid #424245;
+}
+
+#documentationContent pre code {
+	background-color: transparent;
+	color: inherit;
+	padding: 0;
+}
+
+#documentationContent ul,
+#documentationContent ol {
+	color: #d4d4d4;
+	margin: 16px 0;
+	padding-left: 20px;
+}
+
+#documentationContent li {
+	margin-bottom: 8px;
+	color: #d4d4d4;
+}
+
+#documentationContent blockquote {
+	border-left: 4px solid #0066cc;
+	padding-left: 16px;
+	margin: 16px 0;
+	color: #b3b3b3;
+	font-style: italic;
+}
+
+#documentationContent a {
+	color: #4fc3f7;
+	text-decoration: underline;
+}
+
+#documentationContent a:hover {
+	color: #81d4fa;
+}

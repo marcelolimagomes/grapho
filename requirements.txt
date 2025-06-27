@@ -1,0 +1,13 @@
+ast-tools==0.1.8
+networkx==3.2.1
+pyvis==0.3.2
+jinja2==3.1.2
+pyyaml==6.0.1
+pathlib2==2.3.7
+
+# AI and LangChain dependencies
+openai==1.12.0
+langchain==0.1.0
+langchain-openai==0.0.6
+python-dotenv==1.0.0
+tiktoken==0.5.2

@@ -1,0 +1,30 @@
+# Diretório raiz do projeto a ser documentado
+root_directory: "/home/marcelo/des/grapho"
+
+# Tipos de visualização a serem gerados: 'arquivos', 'classes', ou 'ambos'
+visualization_types:
+  - "arquivos"
+  - "classes"
+
+# Formato de saída: 'html', 'json'
+output_format: "html"
+
+# Diretório de saída
+output_directory: "./docs"
+
+# Padrões de arquivos para ignorar
+ignore_patterns:
+  - "__pycache__"
+  - "*.pyc"
+  - ".git"
+  - "venv"
+  - "env"
+  - ".pytest_cache"
+  - "migrations"
+
+# Configurações de visualização
+graph_config:
+  width: "100%"
+  height: "800px"
+  physics_enabled: true
+  hierarchical_layout: false
