@@ -1,4 +1,4 @@
-# 📊 Analisador de Dependências Python com IA
+# 📊 Grapho
 
 > **Uma ferramenta inteligente que analisa seu código Python e gera documentação interativa automática!** 🚀
 
