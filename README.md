@@ -1,8 +1,12 @@
 # 📊 Grapho
 
-> **Uma ferramenta inteligente que analisa seu código Python e gera documentação interativa automática!** 🚀
+**Uma ferramenta inteligente que analisa seu código Python e gera documentação interativa, utilizando inteligência artificial e de forma automática!** 🚀
 
 Transforme qualquer projeto Python em uma documentação visual e interativa com grafos de dependências, análise de código com IA e interface moderna. Perfeito para entender arquiteturas complexas, onboarding de novos desenvolvedores e documentação automática de projetos.
+
+![Screenshot do Grapho](assets/screenshot.png)
+![Screenshot do Grapho](assets/code.png)
+![Screenshot do Grapho](assets/docs.png)
 
 ## ✨ O que esta ferramenta faz?
 
