@@ -15,7 +15,7 @@ Transforme qualquer projeto Python em uma documentação visual e interativa com
 - Identifica classes, funções e dependências automaticamente
 - Não executa seu código - apenas analisa estaticamente (100% seguro!)
 
-### � **Visualização Interativa** 
+### 🕸️ **Visualização Interativa** 
 - Cria grafos interativos mostrando como seus arquivos se conectam
 - Visualiza relacionamentos entre classes (herança, composição)
 - Interface web moderna que funciona em qualquer navegador
@@ -32,8 +32,8 @@ Transforme qualquer projeto Python em uma documentação visual e interativa com
 
 ## 🎯 Para quem é esta ferramenta?
 
-- �‍💻 **Desenvolvedores** que querem entender projetos Python complexos
-- � **Equipes** que precisam documentar arquiteturas de software
+- 👨‍💻 **Desenvolvedores** que querem entender projetos Python complexos
+- 👥 **Equipes** que precisam documentar arquiteturas de software
 - 🎓 **Estudantes** aprendendo sobre estruturas de código
 - 🏢 **Empresas** que querem automatizar documentação técnica
 
@@ -164,7 +164,7 @@ Depois de executar a ferramenta, você terá:
 - Integrações identificadas
 - Aba especial "🤖 Documentação IA"
 
-## �️ Configuração Detalhada
+## ⚙️ Configuração Detalhada
 
 ### ⚙️ Arquivo `config.yaml`
 
@@ -224,7 +224,7 @@ ENABLE_AI_DOCUMENTATION=true
 
 ## 🎯 Exemplos Práticos
 
-### � Exemplo 1: Analisando um Projeto Django
+### 🌐 Exemplo 1: Analisando um Projeto Django
 
 ```bash
 # 1. Configure o config.yaml
@@ -366,7 +366,7 @@ docs/
     └── script.js
 ```
 
-## � Comandos Rápidos
+## ⚡ Comandos Rápidos
 
 ```bash
 # 🚀 USO BÁSICO
@@ -444,7 +444,7 @@ git push origin minha-feature
 # Abra um Pull Request no GitHub!
 ```
 
-## � Contato e Autor
+## 📞 Contato e Autor
 
 ### 👨‍💻 Sobre o Desenvolvedor
 
@@ -473,7 +473,7 @@ Este projeto foi criado com ❤️ para a comunidade Python. Suas sugestões e c
 - 🔧 Contribuir com código
 - ⭐ Dar uma estrela no repositório
 
-## �📄 Licença
+## 📄 Licença
 
 Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
 
